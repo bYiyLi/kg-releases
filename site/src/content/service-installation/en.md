@@ -1,7 +1,7 @@
 ---
 title: "Install KG OS"
 description: "Deploy KG OS, connect ChatGPT, create a private Plugin, and complete checks, upgrades and recovery."
-version: "0.3.4"
+version: "0.3.5"
 ---
 
 <!-- cspell:words newurl rstrip isfinite hashlib pathlib urlopen hexdigest sudoedit xattrs getpass fileno -->
@@ -36,15 +36,15 @@ Expect `x86_64` and Docker output that includes Server. Skip the Compose check i
 
 ### Version and image
 
-**Applies to: KG OS v0.3.4.** The image and official Plugin come from the [formal Release](https://github.com/bYiyLi/kg-releases/releases/tag/v0.3.4). Commands pin the version and immutable digest:
+**Applies to: KG OS v0.3.5.** The image and official Plugin come from the [formal Release](https://github.com/bYiyLi/kg-releases/releases/tag/v0.3.5). Commands pin the version and immutable digest:
 
 ```text
-ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 ```
 
 The image supports only `linux/amd64`, listens on port `3777` by default and runs as `10001:10001`. Container `/workspace` maps to your persistent directory; configuration and data live in its `.kgos` subdirectory. There is currently no official floating `:latest` tag. For an existing instance, check compatibility in the [upgrade procedure](#upgrade) instead of applying new-install commands.
 
-Use the version menu to read the complete manual for each formal release; switching languages preserves the selected version. This release’s Chinese/English guides, [AI installation guide](https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md), and [official Plugin](https://github.com/bYiyLi/kg-releases/releases/download/v0.3.4/kgos-plugin-v0.3.4.zip) all apply to KG OS v0.3.4. Later releases do not overwrite this body. Read the target release instructions before upgrading. Use the official Plugin package for Skills and resources; follow this version’s companion AI guide for the installation workflow.
+Use the version menu to read the complete manual for each formal release; switching languages preserves the selected version. This release’s Chinese/English guides, [AI installation guide](https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md), and [official Plugin](https://github.com/bYiyLi/kg-releases/releases/download/v0.3.5/kgos-plugin-v0.3.5.zip) all apply to KG OS v0.3.5. Later releases do not overwrite this body. Read the target release instructions before upgrading. Use the official Plugin package for Skills and resources; follow this version’s companion AI guide for the installation workflow.
 
 ### Create a separate installation directory
 
@@ -71,7 +71,7 @@ After confirming these names are free, run the following in the same terminal. S
   sudo install -d -m 0700 -o 10001 -g 10001 "$PWD/workspace" "$PWD/workspace/.kgos"
   install -m 0600 /dev/null embedding.env
   docker network create kgos-net
-  docker pull ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+  docker pull ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 )
 ```
 
@@ -157,7 +157,7 @@ Save this complete configuration as `~/kgos/compose.yaml`:
 ```yaml
 services:
   kgos:
-    image: ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+    image: ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
     platform: linux/amd64
     container_name: kgos
     user: "10001:10001"
@@ -203,7 +203,7 @@ docker run -d \
   -p 127.0.0.1:3777:3777 \
   --mount type=bind,src="$PWD/workspace",dst=/workspace \
   --env-file "$PWD/embedding.env" \
-  ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+  ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 docker logs --tail 80 kgos
 ```
 
@@ -512,7 +512,7 @@ Find and install **Plugin Creator** in [ChatGPT Plugins](https://chatgpt.com/plu
 
 ```markdown
 Please follow the official KG OS private Plugin installation guide:
-https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md
+https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md
 
 My verified ChatGPT KG OS app: [app name]
 Public service: https://[my-domain]
@@ -525,15 +525,15 @@ Inspect the actual service, official release and any old Plugin/customizations. 
 Provide the complete official global guidance and ChatGPT settings steps, then run installation checks. Do not request credentials in chat or repeat confirmations for already authorized steps.
 ```
 
-AI then follows the single [INSTALL.md](https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md) to help you:
+AI then follows the single [INSTALL.md](https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md) to help you:
 
-1. **Confirm a plan.** Check the service and matching official assets. For an old private Plugin, inspect its contents against the old official baseline and list customizations and conflicts. You choose the target, migration, permissions and installation scope, then confirm the specific plan. Already authorized steps need no repeated confirmation.
+1. **Confirm a plan.** Check the service and matching official assets. For an old private Plugin, inspect its contents against the old official baseline and list customizations and conflicts. Before creation, also check the persistent instruction location’s capacity, existing content and scope. Report visibility limits instead of assuming another global location exists. You choose the target, migration, permissions, guidance storage and installation scope, then confirm the plan. Already authorized steps need no repeated confirmation.
 2. **Create and install a new version.** Always create a new private Plugin named with the official version; add a revision number when recreating the same version. Reuse the basic app’s real connection and retain all seven official Skills and resources. Keep the old Plugin, and let you decide conflicts rather than overwriting it.
-3. **Configure global guidance.** AI supplies the complete official Global AI Guidance. Open **Settings → Personalization → Custom instructions**, following [ChatGPT personalization guidance](https://learn.chatgpt.com/docs/prompting). Review existing instructions and choose how to append, merge or replace conflicts before saving. Do not silently overwrite them. If space is insufficient, preserve all six parts and choose a supported persistent instruction location that can hold the full text, or resolve conflicts with existing content. If full storage is unavailable, report guidance as unconfigured; do not substitute an 800-character version or treat a one-time paste as global loading.
+3. **Configure global guidance.** AI supplies the complete official Global AI Guidance. Open **Settings → Personalization → Custom instructions**, following [ChatGPT personalization guidance](https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions). Review existing instructions and choose how to append, merge or replace conflicts before saving. Do not silently overwrite them. Reuse the plan’s capacity check. If space is insufficient, use only a verified available storage option with its actual scope, or resolve existing-content conflicts. If full storage is unavailable, report guidance as not configured; do not locally abridge the official text or label project-only instructions or a one-time paste as global loading.
 4. **Check in a new conversation.** Install/enable the new Plugin, open a new conversation and select it with `@`. Pasting the guidance into that conversation is not proof that global settings took effect. Send:
 
 ```markdown
-Use the installed kgos-doctor Skill for installation checks D1–D3 only: global guidance, the selected KG OS MCP connection/knowledge base, and the seven official Skills. Reuse current evidence where applicable. Report configured/installed status, real calls, versions, resource availability and any unobservable items separately. An empty knowledge base is valid. Do not write knowledge, create branches/commits, schedule maintenance or uninstall anything.
+Use the installed kgos-doctor Skill for installation checks D1–D3 only: global guidance, the selected KG OS MCP connection/knowledge base, and the seven official Skills. Reuse current evidence where applicable. Report official resources, visible instruction differences, persistent configuration evidence and ordinary-task behavior separately, alongside connection/Skill installation, real calls, versions and resources. Whole-configuration invisibility must not hide a confirmed local difference; list unverified parts separately. An empty knowledge base is valid. Do not write knowledge, create branches/commits, schedule maintenance or uninstall anything.
 ```
 
 The report should identify the service/app, private Plugin version, all seven official Skills and referenced resources, guidance saving/observable behavior, and customization migration. The seven Skills cover Ontology, Knowledge, Retrieval, Branch, Maintenance and VLog standards, plus Doctor. Their actual resources come from the selected release.

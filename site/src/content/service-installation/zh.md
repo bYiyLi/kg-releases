@@ -1,7 +1,7 @@
 ---
 title: "安装 KG OS"
 description: "部署 KG OS、连接 ChatGPT、制作私人 Plugin，并完成自检、升级与恢复。"
-version: "0.3.4"
+version: "0.3.5"
 ---
 
 <!-- cspell:words newurl rstrip isfinite hashlib pathlib urlopen hexdigest sudoedit xattrs getpass fileno -->
@@ -36,15 +36,15 @@ docker compose version
 
 ### 版本与镜像
 
-**适用版本：KG OS v0.3.4。** 镜像与官方 Plugin 来自 [正式 Release](https://github.com/bYiyLi/kg-releases/releases/tag/v0.3.4)，命令固定版本和不可变 digest：
+**适用版本：KG OS v0.3.5。** 镜像与官方 Plugin 来自 [正式 Release](https://github.com/bYiyLi/kg-releases/releases/tag/v0.3.5)，命令固定版本和不可变 digest：
 
 ```text
-ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 ```
 
 该镜像仅支持 `linux/amd64`，默认端口 `3777`，运行身份 `10001:10001`。容器 `/workspace` 对应你的持久目录，实例配置与数据位于其下的 `.kgos`。官方当前不提供 `:latest` 浮动标签。已有实例先按[升级流程](#upgrade)核对兼容性，不直接套用新安装步骤。
 
-通过页面版本菜单查看各个正式发布版本的完整手册；切换语言时保持所选版本。本版中英文手册、[AI 安装指南](https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md)和[官方 Plugin](https://github.com/bYiyLi/kg-releases/releases/download/v0.3.4/kgos-plugin-v0.3.4.zip)均适用于 KG OS v0.3.4。新版本发布不会覆盖本版正文；升级前查看目标版本说明。官方 Plugin 包用于取得 Skill 与资源，AI 安装流程以本版配套指南为准。
+通过页面版本菜单查看各个正式发布版本的完整手册；切换语言时保持所选版本。本版中英文手册、[AI 安装指南](https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md)和[官方 Plugin](https://github.com/bYiyLi/kg-releases/releases/download/v0.3.5/kgos-plugin-v0.3.5.zip)均适用于 KG OS v0.3.5。新版本发布不会覆盖本版正文；升级前查看目标版本说明。官方 Plugin 包用于取得 Skill 与资源，AI 安装流程以本版配套指南为准。
 
 ### 建立独立安装目录
 
@@ -71,7 +71,7 @@ ss -ltn
   sudo install -d -m 0700 -o 10001 -g 10001 "$PWD/workspace" "$PWD/workspace/.kgos"
   install -m 0600 /dev/null embedding.env
   docker network create kgos-net
-  docker pull ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+  docker pull ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 )
 ```
 
@@ -157,7 +157,7 @@ sudo install -m 0600 -o 10001 -g 10001 config.toml workspace/.kgos/config.toml
 ```yaml
 services:
   kgos:
-    image: ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+    image: ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
     platform: linux/amd64
     container_name: kgos
     user: "10001:10001"
@@ -203,7 +203,7 @@ docker run -d \
   -p 127.0.0.1:3777:3777 \
   --mount type=bind,src="$PWD/workspace",dst=/workspace \
   --env-file "$PWD/embedding.env" \
-  ghcr.io/byiyli/kgos:v0.3.4@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
+  ghcr.io/byiyli/kgos:v0.3.5@sha256:a153a03ab8e1c71a52563d9dbaa0ad3d8720c769f470637100d92ae26fed51cb
 docker logs --tail 80 kgos
 ```
 
@@ -512,7 +512,7 @@ KG OS 当前连接权限包含读写；安装验收只执行只读调用，后�
 
 ```markdown
 请按照官方 KG OS 私人 Plugin 安装手册协助安装：
-https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md
+https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md
 
 已验证的 ChatGPT KG OS 应用：[应用名称]
 公网服务：https://[我的域名]
@@ -525,15 +525,15 @@ https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md
 提供完整官方全局引导词与 ChatGPT 配置步骤，最后完成安装自检。不要让我在聊天中提供凭证，已授权步骤不要重复确认。
 ```
 
-接下来由 AI 按唯一 [INSTALL.md](https://kgos.sites.y2l.top/install/v0.3.4/INSTALL.md)协助完成：
+接下来由 AI 按唯一 [INSTALL.md](https://kgos.sites.y2l.top/install/v0.3.5/INSTALL.md)协助完成：
 
-1. **确认方案**：核对服务与同版官方资源；如有旧私人 Plugin，读取旧版内容并与旧官方基线比较，列出定制迁移与冲突。你选择目标、迁移内容、权限与安装范围，确认具体方案后执行。已授权步骤不重复确认。
+1. **确认方案**：核对服务与同版官方资源；如有旧私人 Plugin，读取旧版内容并与旧官方基线比较，列出定制迁移与冲突。制作前同时核对持久指令入口的容量、已有内容及适用范围；无法观察时说明限制，不假设另一全局入口存在。你选择目标、迁移内容、权限、引导词保存方案与安装范围，确认后执行；已授权步骤不重复确认。
 2. **创建并安装新版本**：每次新建名称带官方版本号的私人 Plugin，同版重做增加修订号；复用基础应用的真实连接，保留七个官方 Skill 与资源。旧 Plugin 先保留，发生冲突由你选择，不原地覆盖。
-3. **配置全局引导词**：AI 给出完整官方 Global AI Guidance。按 [ChatGPT 个性化设置](https://learn.chatgpt.com/docs/prompting)打开 **Settings → Personalization → Custom instructions**，查看现有内容，由你选择追加、合并或替换冲突部分并保存；不静默覆盖原指令。字段长度不足时保留六部分完整正文，选择宿主可承载全文的持久指令入口或解决已有内容冲突；无法完整保存则保留未配置状态，不压缩为 800 字稿或将单次贴入当全局加载。
+3. **配置全局引导词**：AI 给出完整官方 Global AI Guidance。按 [ChatGPT 个性化设置](https://help.openai.com/en/articles/8096356-chatgpt-custom-instructions)打开 **Settings → Personalization → Custom instructions**，查看现有内容，由你选择追加、合并或替换冲突部分并保存；不静默覆盖原指令。沿用方案中的容量预检；空间不足时仅选择实际可用且适用范围明确的保存方式，或解决已有内容冲突。无法完整保存则保留未配置状态，不临时删节官方正文，也不将项目/单次会话范围当全局加载。
 4. **新会话自检**：安装新 Plugin，确认其启用后新建会话并通过 `@` 选中；不在会话中重新粘贴引导词作为“已生效”的证明。发送：
 
 ```markdown
-使用已安装的 kgos-doctor Skill，只做安装相关 D1–D3 自检：全局引导词、选定 KG OS MCP 连接与知识库、七个官方 Skill。复用适用的已有证据，分别报告配置/安装状态、真实调用、版本、资源可用性及不可观测项。空知识库允许通过；不写入知识、不创建分支或 Commit、不配置维护任务、不卸载任何内容。
+使用已安装的 kgos-doctor Skill，只做安装相关 D1–D3 自检：全局引导词、选定 KG OS MCP 连接与知识库、七个官方 Skill。复用适用的已有证据，分别报告官方资源、当前可见指令差异、持久配置证据、普通任务行为，以及连接/Skill 的安装状态、真实调用、版本与资源可用性。整体不可见不掩盖已确认局部差异；未验证部分单列。空知识库允许通过；不写入知识、不创建分支或 Commit、不配置维护任务、不卸载任何内容。
 ```
 
 AI 应分别列出服务和应用、私人 Plugin 版本、七个官方 Skill 与引用资源、引导词保存和可观察行为，以及旧定制迁移结果。七个 Skill 为 Ontology、Knowledge、Retrieval、Branch、Maintenance、VLog 规范和 Doctor，实际资源以所选版本发行包为准。
@@ -798,7 +798,7 @@ diff -u acceptance-before-upgrade.json acceptance-upgrade.json
 | `error`                                  | 记录不含密钥的公开 `message` 和相关日志；检查完整 TOML、权限、磁盘和模型凭证。保留数据，修复原因后重启原容器；配置已发布时保留原配置与 `auth.json`，查因后重启同一容器恢复，不重复提交新配置 |
 | 容器退出或权限拒绝                       | 检查挂载是否为这次新建目录、UID/GID 是否为 `10001:10001`、目录可遍历且文件可读写；不要对未知目录递归 `chown` 或改为 `777`                                                                    |
 | 名称、目录、端口或网络冲突               | 先确定归属，选择复用或完整更换新安装名称；不要自动删除旧资源。SSH 本地 `13777` 冲突可换本地端口，同时修改浏览器地址                                                                          |
-| Embedding 失败                           | 核对容器可达的 URL、模型、实际维度、算法、凭证及服务配额；管理员验证允许本机、私网和 Fake-IP 等合法 HTTP(S) 地址；检查实际容器网络与代理/DNS。不要在日志或求助消息中贴 API Key                                                                 |
+| Embedding 失败                           | 核对容器可达的 URL、模型、实际维度、算法、凭证及服务配额；管理员验证允许本机、私网和 Fake-IP 等合法 HTTP(S) 地址；检查实际容器网络与代理/DNS。不要在日志或求助消息中贴 API Key               |
 | 证书失败或公网不可达                     | 核对 DNS A/AAAA、NAT、80/443、安全组及 Caddy 日志。先修网络与证书，不跳过 TLS 检查，也不把未初始化服务暴露出去                                                                               |
 | OAuth 地址不正确                         | 核对实例内 `[server].public_origin`，按下方受控配置编辑步骤修正为实际根 Origin，重启服务后重新检查元数据                                                                                     |
 | ChatGPT 缺少自定义 MCP 或 Plugin Creator | 核对当前账户、Workspace 与管理员策略，由你选择申请权限、使用另一个获准账户或先只完成服务；不自动切换账户或谎报完整安装                                                                       |
