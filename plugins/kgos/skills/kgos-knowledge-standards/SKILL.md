@@ -2,7 +2,7 @@
 name: kgos-knowledge-standards
 description: Use for KG OS Knowledge retrieval, evidence-based answers, relationship analysis, change recommendations, authorized updates and quality correction under an existing Ontology. Not for Ontology/Branch design, VLog-specific records or environment diagnosis.
 metadata:
-  version: "0.3.8"
+  version: "0.3.9"
 ---
 
 # KG OS 知识规范

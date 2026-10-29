@@ -2,7 +2,7 @@
 name: kgos-doctor
 description: 用户要求诊断 KG OS 与 ChatGPT 的 Plugin、全局引导词、MCP/State、官方 Skills、Knowledge 或维护/VLog 是否就绪时，执行完整或定向 D0–D5 只读检查并提供证据与建议；不负责普通知识检索、CLI kg doctor、修复或升级。
 metadata:
-  version: "0.3.8"
+  version: "0.3.9"
 ---
 
 # KG OS Doctor

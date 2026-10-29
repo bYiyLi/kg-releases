@@ -2,7 +2,7 @@
 name: kgos-ontology-standards
 description: Design, review, reuse or implement approved KG OS Ontology and knowledge-world models; decide Domain, Definition, relationship and Branch boundaries from business identity, semantics and query needs. Not for ordinary Knowledge editing, VLog recording or diagnosis.
 metadata:
-  version: "0.3.8"
+  version: "0.3.9"
 ---
 
 # KG OS 本体论规范
