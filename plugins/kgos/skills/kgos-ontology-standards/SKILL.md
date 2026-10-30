@@ -2,7 +2,7 @@
 name: kgos-ontology-standards
 description: Design, review, reuse or implement approved KG OS Ontology; choose Definitions, relationships, indexes, Domain organization and knowledge-world boundaries from business identity and query needs. Not for ordinary Knowledge editing, VLog or diagnosis.
 metadata:
-  version: "0.3.10"
+  version: "0.3.11"
 ---
 
 # KG OS 本体论规范

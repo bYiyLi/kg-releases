@@ -2,7 +2,7 @@
 name: kgos-vlog-standards
 description: Use for KG OS VLog records of system events, decisions, operations, verification and reusable lessons; review evidence, recommend records or perform authorized recording and correction. Not for ordinary Knowledge, Ontology design, scheduling or diagnosis.
 metadata:
-  version: "0.3.10"
+  version: "0.3.11"
 ---
 
 # KG OS VLog 规范
