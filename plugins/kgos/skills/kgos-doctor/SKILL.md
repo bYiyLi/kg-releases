@@ -2,7 +2,7 @@
 name: kgos-doctor
 description: 用户要求 KG OS 全面自检，或定向检查 Plugin、引导词、MCP/State、官方 Skills、Knowledge、维护/VLog、官方 Ontology 模型对比与升级机会时，执行 D0–D6 只读诊断并给出证据与建议；不负责普通知识检索、本体设计实施、CLI kg doctor、修复或升级。
 metadata:
-  version: "0.3.11"
+  version: "0.3.12"
 ---
 
 # KG OS Doctor
