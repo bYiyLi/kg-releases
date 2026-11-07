@@ -2,7 +2,7 @@
 name: design-ontology
 description: 在用户需要设计新本体，或调整已有本体的概念、关系、属性与约束时使用；根据使用场景完成设计与自检，交付完整本体设计稿。仅将已完成设计写入 KG OS，或独立审核已生效模型时不使用。
 metadata:
-  version: "0.3.17"
+  version: "0.3.18"
 ---
 
 # 本体设计

@@ -2,7 +2,7 @@
 name: kgos-record-vlog
 description: 在部署升级、配置或模型变更、故障排查、重要测试验收、关键决策或复盘等系统活动实际发生时使用，主动将活动及结果记入 KG OS VLog；也用于补充或纠正既有日志。普通查询和逐次工具调用不自动记录，不承担知识整理与保存。
 metadata:
-  version: "0.3.17"
+  version: "0.3.18"
 ---
 
 # 系统 VLog 记录
