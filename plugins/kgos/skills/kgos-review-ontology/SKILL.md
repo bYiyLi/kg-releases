@@ -2,7 +2,7 @@
 name: kgos-review-ontology
 description: 在用户要求审核 KG OS 中已生效的本体模型时使用；读取实际定义和相关知识，核对语义与使用边界，交付有依据的问题报告及检查清单。只发现问题，不提出修改建议或修改知识库。
 metadata:
-  version: "0.3.18"
+  version: "0.3.19"
 ---
 
 # KG OS 本体审核
