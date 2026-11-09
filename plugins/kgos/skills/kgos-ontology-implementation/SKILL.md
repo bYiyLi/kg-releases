@@ -2,7 +2,7 @@
 name: kgos-ontology-implementation
 description: 在用户要求将已完成的本体设计写入 KG OS 时使用；核验授权与输入，转换并保存定义，回读检查信息一致性，将完整设计与实际验收结果记录到 vlog。
 metadata:
-  version: "0.3.19"
+  version: "0.3.20"
 ---
 
 # KG OS 本体落地

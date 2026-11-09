@@ -2,7 +2,7 @@
 name: kgos-retrieve-knowledge
 description: 在需要依据 KG OS 知识回答问题、作出判断或推进当前任务时使用；按实际本体检索，核对完整内容与适用性，再用于答案或已获授权的任务。不负责知识保存、独立的知识质量审核或本体修改。
 metadata:
-  version: "0.3.19"
+  version: "0.3.20"
 ---
 
 # KG OS 知识检索与应用

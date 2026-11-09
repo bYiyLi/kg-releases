@@ -2,7 +2,7 @@
 name: kgos-review-knowledge
 description: 在用户要求审核 KG OS 中已保存的知识质量时使用；按质量规范检查知识内容及明确关联，交付问题、依据、影响和无法确认事项。只读，不提供修改方案；知识整理保存和本体审核由对应技能负责。
 metadata:
-  version: "0.3.19"
+  version: "0.3.20"
 ---
 
 # KG OS 知识审核
